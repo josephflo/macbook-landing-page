@@ -2,6 +2,7 @@ import clsx from "clsx";
 import useDevBookStore from "../store";
 import { Canvas } from "@react-three/fiber";
 import { Box, OrbitControls  } from "@react-three/drei";
+import DevMookModel14 from "./Models/Devbook-14";
 
 const ProductViewer = () => {
   const { color, scale, setColor, setScale } = useDevBookStore();
@@ -9,7 +10,7 @@ const ProductViewer = () => {
   return (
     <section id="product-viewer">
       <h2>Take a closer look.</h2>
-
+      
       <div className="controls">
         <p className="info">
           DevBookPro {scale}" in {color}
@@ -62,11 +63,8 @@ const ProductViewer = () => {
         id="canvas"
         camera={{ position: [0, 0, 10], fov: 50, near: 0.1, far: 100 }}
       >
-        <Box
-          position={[0, 0, 0]}
-          scale={10 * scale}
-          material-color={color}
-        ></Box>
+        <ambientLight intensity={1.5} />
+        <DevMookModel14 scale={0.06} position={[0, 0, 0]} />
         <OrbitControls enableZoom={false} />
       </Canvas>
     </section>

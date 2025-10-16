@@ -5,6 +5,7 @@ const NavBar = () => {
   return (
     <header>
         <nav>
+            <img  src="/logo-banana.svg" alt="Apple logo" className='md:w-12 md:h-12 h-8 w-8'/>
             <ul> {navLinks.map(({label})=> (
                 <li key={label}>
                     <a href={`#${label.toLowerCase()}`}>{label}</a>
