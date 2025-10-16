@@ -3,6 +3,7 @@ import useDevBookStore from "../store";
 import { Canvas } from "@react-three/fiber";
 import { Box, OrbitControls  } from "@react-three/drei";
 import DevMookModel14 from "./Models/Devbook-14";
+import StudioLights from "./Models/StudioLights";
 
 const ProductViewer = () => {
   const { color, scale, setColor, setScale } = useDevBookStore();
@@ -63,7 +64,7 @@ const ProductViewer = () => {
         id="canvas"
         camera={{ position: [0, 0, 10], fov: 50, near: 0.1, far: 100 }}
       >
-        <ambientLight intensity={1.5} />
+        <StudioLights />
         <DevMookModel14 scale={0.06} position={[0, 0, 0]} />
         <OrbitControls enableZoom={false} />
       </Canvas>
