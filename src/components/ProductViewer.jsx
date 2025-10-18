@@ -2,11 +2,15 @@ import clsx from "clsx";
 import useDevBookStore from "../store";
 import { Canvas } from "@react-three/fiber";
 import { Box, OrbitControls  } from "@react-three/drei";
-import DevMookModel14 from "./Models/Devbook-14";
-import StudioLights from "./Models/StudioLights";
+import DevMookModel14 from "./models/Devbook-14";
+import StudioLights from "./models/three/StudioLights";
+import ModelSwitcher from "./models/three/ModelSwitcher";
+import { useMediaQuery } from "react-responsive";
 
 const ProductViewer = () => {
   const { color, scale, setColor, setScale } = useDevBookStore();
+
+  const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
   return (
     <section id="product-viewer">
@@ -65,8 +69,7 @@ const ProductViewer = () => {
         camera={{ position: [0, 0, 10], fov: 50, near: 0.1, far: 100 }}
       >
         <StudioLights />
-        <DevMookModel14 scale={0.06} position={[0, 0, 0]} />
-        <OrbitControls enableZoom={false} />
+        <ModelSwitcher scale={isMobile ? scale -0.03 : scale}  isMobile={isMobile} />
       </Canvas>
     </section>
   );
