@@ -1,8 +1,6 @@
 import clsx from "clsx";
 import useDevBookStore from "../store";
 import { Canvas } from "@react-three/fiber";
-import { Box, OrbitControls  } from "@react-three/drei";
-import DevMookModel14 from "./models/Devbook-14";
 import StudioLights from "./models/three/StudioLights";
 import ModelSwitcher from "./models/three/ModelSwitcher";
 import { useMediaQuery } from "react-responsive";
@@ -66,10 +64,10 @@ const ProductViewer = () => {
 
       <Canvas
         id="canvas"
-        camera={{ position: [0, 0, 10], fov: 50, near: 0.1, far: 100 }}
+        camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }}
       >
         <StudioLights />
-        <ModelSwitcher scale={isMobile ? scale -0.03 : scale}  isMobile={isMobile} />
+        <ModelSwitcher scale={scale}  isMobile={isMobile} />
       </Canvas>
     </section>
   );

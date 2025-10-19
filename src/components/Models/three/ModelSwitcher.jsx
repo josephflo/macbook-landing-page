@@ -2,6 +2,8 @@ import { PresentationControls } from '@react-three/drei';
 import { useRef } from 'react'
 import DevbookModel16 from '../Devbook-16'
 import DevbookModel14 from '../Devbook-14'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 
 const ANIMATION_DURATION = 1;
@@ -30,6 +32,22 @@ const ModelSwitcher = ({scale, isMobile}) => {
 
   const showLargeDevbook = scale === 0.08 || scale === 0.05
 
+  useGSAP(() => {
+    if(showLargeDevbook) {
+      moveGroup(smallDevbookRef.current, -OFFSET_DISTANCE);
+      moveGroup(largeDevbookRef.current, 0);
+
+      fadeMeshes(smallDevbookRef.current, 0);
+      fadeMeshes(largeDevbookRef.current, 1);
+    } else {
+      moveGroup(smallDevbookRef.current, 0);
+      moveGroup(largeDevbookRef.current, OFFSET_DISTANCE);
+
+      fadeMeshes(smallDevbookRef.current, 1);
+      fadeMeshes(largeDevbookRef.current, 0);
+    }
+  },[scale])
+
   const controlsConfig = {
     snap: true,
     speed: 1,
@@ -42,13 +60,13 @@ const ModelSwitcher = ({scale, isMobile}) => {
   return (
     <>
       <PresentationControls {...controlsConfig}>
-        <group>
-          <DevbookModel16 scale={isMobile ? scale - 0.05 : 0.08}/>
+        <group ref={largeDevbookRef}>
+          <DevbookModel16 scale={isMobile ? 0.05 : 0.08}/>
         </group>
       </PresentationControls>
       <PresentationControls {...controlsConfig}>
-        <group>
-          <DevbookModel14 scale={isMobile ? scale - 0.03 : 0.06}/>
+        <group ref={smallDevbookRef}>
+          <DevbookModel14 scale={isMobile ? 0.03 : 0.06}/>
         </group>
       </PresentationControls>
     </>
