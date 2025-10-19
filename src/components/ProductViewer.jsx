@@ -15,9 +15,9 @@ const ProductViewer = () => {
       <h2>Take a closer look.</h2>
       
       <div className="controls">
-        <p className="info">
+        {/* <p className="info">
           DevBookPro {scale}" in {color}
-        </p>
+        </p> */}
 
         <div className="flex-center gap-5 mt-5">
           <div className="color-control">
