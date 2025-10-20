@@ -1,7 +1,7 @@
 import { PresentationControls } from '@react-three/drei';
 import { useRef } from 'react'
-import DevbookModel16 from '../Devbook-16'
-import DevbookModel14 from '../Devbook-14'
+import DevbookModel16 from '../models/Devbook-16'
+import DevbookModel14 from '../models/Devbook-14'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 

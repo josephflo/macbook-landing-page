@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import useDevBookStore from "../store";
 import { Canvas } from "@react-three/fiber";
-import StudioLights from "./models/three/StudioLights";
-import ModelSwitcher from "./models/three/ModelSwitcher";
+import StudioLights from "./three/StudioLights";
+import ModelSwitcher from "./three/ModelSwitcher";
 import { useMediaQuery } from "react-responsive";
 
 const ProductViewer = () => {
