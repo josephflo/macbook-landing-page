@@ -4,7 +4,7 @@ import {features, featureSequence} from "../constants/index.js";
 import clsx from "clsx";
 import {Suspense, useEffect, useRef} from "react";
 import {Html} from "@react-three/drei";
-import MacbookModel from "./models/Macbook.jsx";
+import DevbookModel from "./models/Devbook.jsx";
 import {useMediaQuery} from "react-responsive";
 import useDevBookStore from "../store/index.js";
 import {useGSAP} from "@gsap/react";
@@ -80,7 +80,7 @@ const ModelScroll = () => {
     return (
         <group ref={groupRef}>
             <Suspense fallback={<Html><h1 className="text-white text-3xl uppercase">Loading...</h1></Html>}>
-                <MacbookModel scale={isMobile ? 0.05 : 0.08} position={[0, -1, 0]} />
+                <DevbookModel scale={isMobile ? 0.05 : 0.08} position={[0, -1, 0]} />
             </Suspense>
         </group>
     )
