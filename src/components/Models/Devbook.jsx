@@ -9,7 +9,7 @@ Title: macbook pro M3 16 inch 2024
 */
 
 import { useGLTF, useVideoTexture } from '@react-three/drei'
-import { useDevBookStore } from '../../store'
+import  useDevBookStore  from '../../store/index.js';
 import { MeshBasicMaterial } from 'three';
 
 export default function Model(props) {
